@@ -13,7 +13,6 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gray-900">
-      {/* Canvas background */}
       <canvas id="bg" className="fixed inset-0 z-0"></canvas>
 
       {/* Navbar */}
@@ -27,7 +26,7 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="flex flex-col justify-center items-center text-center min-h-screen px-6 py-20 z-10 relative">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">DSRT</h1>
         <p className="text-xl md:text-2xl mb-8 text-white">Digital Smart Revise Technology</p>
@@ -41,23 +40,20 @@ export default function Home() {
         </Link>
       </section>
 
-      {/* Features Section */}
+      {/* Features */}
       <section id="features" className="py-20 px-6 bg-gray-800 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-12 text-white">Our Features</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <i className="fas fa-bolt text-4xl text-indigo-400 mb-4"></i>
               <h3 className="text-xl font-semibold mb-2 text-white">Fast & Smart</h3>
-              <p className="text-gray-400">Experience high-speed performance with optimized smart features.</p>
+              <p className="text-gray-400">High-speed performance with optimized smart features.</p>
             </div>
             <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <i className="fas fa-lock text-4xl text-indigo-400 mb-4"></i>
               <h3 className="text-xl font-semibold mb-2 text-white">Secure</h3>
-              <p className="text-gray-400">Your data is protected with industry-leading security protocols.</p>
+              <p className="text-gray-400">Data protected with industry-leading security protocols.</p>
             </div>
             <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <i className="fas fa-mobile-alt text-4xl text-indigo-400 mb-4"></i>
               <h3 className="text-xl font-semibold mb-2 text-white">Mobile Friendly</h3>
               <p className="text-gray-400">Optimized for all devices: mobile, tablet, and desktop.</p>
             </div>
@@ -84,8 +80,7 @@ export default function Home() {
         <p className="text-gray-500 text-sm mt-8">&copy; 2025 DSRT. All rights reserved.</p>
       </footer>
 
-      {/* Auth Modal */}
       <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
-}
+        }
