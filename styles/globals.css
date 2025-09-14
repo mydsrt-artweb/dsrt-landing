@@ -6,21 +6,11 @@ button { cursor:pointer; }
 ::-webkit-scrollbar-thumb { background:#4a5568; border-radius:10px; }
 ::-webkit-scrollbar-thumb:hover { background:#2d3748; }
 
-/* Utility tambahan untuk memastikan semua elemen di tengah */
-.flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Typography tambahan */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Inter', sans-serif;
-}
+/* Flex center utility */
+.flex-center { display:flex; justify-content:center; align-items:center; }
 
 /* Button hover transition */
-button, a {
-  transition: all 0.3s ease;
-}
+button, a { transition: all 0.3s ease; }
 
-/* Responsive utilities bisa gunakan Tailwind (sudah di setup) */
+/* Typography */
+h1,h2,h3,h4,h5,h6 { font-family:'Inter', sans-serif; }
