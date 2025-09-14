@@ -1,8 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import AuthModal from '../components/AuthModal';
 import Link from 'next/link';
+import AuthModal from '../components/AuthModal';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,6 +13,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-gray-900">
+      {/* 3D Background */}
       <canvas id="bg" className="fixed inset-0 z-0"></canvas>
 
       {/* Navbar */}
@@ -26,17 +27,20 @@ export default function Home() {
         </button>
       </header>
 
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="flex flex-col justify-center items-center text-center min-h-screen px-6 py-20 z-10 relative">
         <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white">DSRT</h1>
         <p className="text-xl md:text-2xl mb-8 text-white">Digital Smart Revise Technology</p>
         <p className="text-gray-300 max-w-3xl text-center text-lg md:text-xl leading-relaxed mb-8">
           DSRT is a cutting-edge digital platform designed to revolutionize the way individuals and businesses approach learning, revision, and workflow optimization. By integrating advanced AI-driven tools with a user-friendly interface, DSRT ensures that your tasks are performed efficiently, securely, and intelligently, delivering measurable productivity gains and seamless digital experiences.
         </p>
-        <Link href="#features">
-          <a className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg transition">
-            Get Started
-          </a>
+
+        {/* Get Started Button */}
+        <Link
+          href="#features"
+          className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg transition"
+        >
+          Get Started
         </Link>
       </section>
 
@@ -80,6 +84,7 @@ export default function Home() {
         <p className="text-gray-500 text-sm mt-8">&copy; 2025 DSRT. All rights reserved.</p>
       </footer>
 
+      {/* Modal */}
       <AuthModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
