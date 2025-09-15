@@ -1,5 +1,5 @@
+// app/page.js
 'use client';
-
 import { useEffect } from 'react';
 import * as THREE from 'three';
 import Link from 'next/link';
@@ -51,26 +51,6 @@ export default function Landing() {
         <Link href="#features">
           <a className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg transition">Get Started</a>
         </Link>
-      </section>
-
-      <section id="features" className="py-20 px-6 bg-gray-800">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-12">Our Features</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">Fast & Smart</h3>
-              <p className="text-gray-400">Experience high-speed performance with optimized smart features.</p>
-            </div>
-            <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">Secure</h3>
-              <p className="text-gray-400">Your data is protected with industry-leading security protocols.</p>
-            </div>
-            <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
-              <h3 className="text-xl font-semibold mb-2">Mobile Friendly</h3>
-              <p className="text-gray-400">Optimized for all devices: mobile, tablet, and desktop.</p>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   )
