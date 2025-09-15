@@ -1,62 +1,73 @@
-// app/layout.js
-import '../styles/globals.css';
+'use client';
+import { useEffect } from 'react';
+import * as THREE from 'three';
 import Link from 'next/link';
 
-export default function RootLayout({ children }) {
+export default function Landing() {
+  useEffect(() => {
+    const canvas = document.getElementById('bg');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x6366f1,
+      wireframe: true,
+    });
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
+
+    const pointLight = new THREE.PointLight(0xffffff);
+    pointLight.position.set(20, 20, 20);
+    scene.add(pointLight);
+
+    camera.position.z = 50;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      torusKnot.rotation.x += 0.003;
+      torusKnot.rotation.y += 0.003;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  }, []);
+
   return (
-    <html lang="en">
-      <body className="bg-gray-900 text-white">
-        {/* Header global */}
-        <header className="w-full px-6 py-6 flex justify-between items-center bg-gradient-to-b from-gray-900/80 to-transparent">
-          <img
-            src="/erasebg-transformed.png"
-            alt="DSRT Logo"
-            className="h-16 md:h-20"
-          />
-          <Link
-            href="/auth/login"
-            className="px-6 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg transition"
-          >
-            Login
-          </Link>
-        </header>
+    <div className="relative min-h-screen">
+      <canvas
+        id="bg"
+        className="fixed top-0 left-0 w-full h-full z-[-1]"
+      ></canvas>
 
-        {/* Main content dari halaman child */}
-        <main>{children}</main>
-
-        {/* Footer global */}
-        <footer className="bg-gray-900 text-center md:text-left px-6 py-12 mt-12">
-          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div>
-              <h3 className="text-white font-bold text-lg mb-2">DSRT</h3>
-              <p className="text-gray-400 text-sm">
-                Digital Smart Revise Technology
-              </p>
-            </div>
-            <div className="flex gap-6">
-              <a
-                href="https://www.instagram.com/dsrt.official.2025"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-pink-500 transition"
-              >
-                Instagram
-              </a>
-              <a
-                href="https://github.com/mydsrt-artweb/sds"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-gray-400 transition"
-              >
-                Github
-              </a>
-            </div>
-          </div>
-          <p className="text-gray-500 text-sm mt-8">
-            &copy; 2025 DSRT. All rights reserved.
-          </p>
-        </footer>
-      </body>
-    </html>
+      <section className="min-h-screen flex flex-col justify-center items-center text-center px-6 py-20">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6">DSRT</h1>
+        <p className="text-xl md:text-2xl mb-8">
+          Digital Smart Revise Technology
+        </p>
+        <p className="text-gray-300 max-w-3xl text-center text-lg md:text-xl leading-relaxed mb-8">
+          DSRT is a cutting-edge digital platform designed to revolutionize
+          learning, revision, and workflow optimization.
+        </p>
+        <Link
+          href="#features"
+          className="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-full shadow-lg transition"
+        >
+          Get Started
+        </Link>
+      </section>
+    </div>
   );
 }
